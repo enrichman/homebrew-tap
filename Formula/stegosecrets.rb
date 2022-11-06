@@ -5,21 +5,21 @@
 class Stegosecrets < Formula
   desc "CLI for StegoSecretS. Encrypt and share secrets among trusted peers with AES-256, SSS and steganography."
   homepage "https://github.com/enrichman/stegosecrets"
-  version "0.1.1"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/enrichman/stegosecrets/releases/download/v0.1.1/stegosecrets_0.1.1_Darwin_arm64.tar.gz"
-      sha256 "43435d6fbcfeed67944eff5a92e14c0b84bf9dc7c7918865f53169748a61dd61"
+    if Hardware::CPU.intel?
+      url "https://github.com/enrichman/stegosecrets/releases/download/v0.2.0/stegosecrets_0.2.0_Darwin_x86_64.tar.gz"
+      sha256 "80b95b99ea8f04bc2ccd9f5018d68ff23b348d4727f59e0e637f3ec0f379f144"
 
       def install
         bin.install "stego"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/enrichman/stegosecrets/releases/download/v0.1.1/stegosecrets_0.1.1_Darwin_x86_64.tar.gz"
-      sha256 "7842be24f0a7d48d9a2cee4dc449b617c0730bf4a7739946c51aac0f0418aec1"
+    if Hardware::CPU.arm?
+      url "https://github.com/enrichman/stegosecrets/releases/download/v0.2.0/stegosecrets_0.2.0_Darwin_arm64.tar.gz"
+      sha256 "7e5285505238f349900f68f0a185e95463cac91d70a79d581d747e8805b15352"
 
       def install
         bin.install "stego"
@@ -28,17 +28,17 @@ class Stegosecrets < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/enrichman/stegosecrets/releases/download/v0.1.1/stegosecrets_0.1.1_Linux_x86_64.tar.gz"
-      sha256 "edc432434756f67c22e58e0e69cf17502697c0c12eec13e7783e23e45a9a9a14"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/enrichman/stegosecrets/releases/download/v0.2.0/stegosecrets_0.2.0_Linux_arm64.tar.gz"
+      sha256 "3f53a86f722fae7e13e2ef42d30ff10aaa882ef04b7e19c9ecfd6ebeaca9e44c"
 
       def install
         bin.install "stego"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/enrichman/stegosecrets/releases/download/v0.1.1/stegosecrets_0.1.1_Linux_arm64.tar.gz"
-      sha256 "e813df6e3345e65f36f96b12c493bef878e2634325797398388117d99182686f"
+    if Hardware::CPU.intel?
+      url "https://github.com/enrichman/stegosecrets/releases/download/v0.2.0/stegosecrets_0.2.0_Linux_x86_64.tar.gz"
+      sha256 "742d1f3e041a737e57f145aa2a5bf54288308b268d39cc382ca5806c2b283ca5"
 
       def install
         bin.install "stego"
